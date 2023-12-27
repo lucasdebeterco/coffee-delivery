@@ -1,6 +1,11 @@
+import { Header } from './components/Header';
+import { DefaultLayput } from './styles.ts';
+
 function App() {
   return (
-    <>Coffee Delivery</>
+      <DefaultLayput>
+        <Header />
+      </DefaultLayput>
   )
 }
 
