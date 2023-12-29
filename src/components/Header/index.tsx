@@ -10,11 +10,11 @@ export function Header() {
             </div>
             <div>
                 <div>
-                    <MapPin/>
+                    <MapPin weight="fill"/>
                     Porto Alegre, RS
                 </div>
                 <div className='cart'>
-                    <ShoppingCart/>
+                    <ShoppingCart weight="fill"/>
                 </div>
             </div>
         </HeaderContainer>
