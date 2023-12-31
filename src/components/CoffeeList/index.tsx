@@ -5,12 +5,17 @@ import { ICoffee } from '../../@types/coffee';
 
 export function CoffeeList() {
     return (
+
         <CoffeeListContainer>
-            {coffees.map((coffee: ICoffee) => {
-                return (
-                    <CoffeeItem key={coffee.id} coffee={coffee} />
-                )
-            })}
+            <h3>Nossos cafés</h3>
+
+            <div className='coffeeList'>
+                {coffees.map((coffee: ICoffee) => {
+                    return (
+                        <CoffeeItem key={coffee.id} coffee={coffee} />
+                    )
+                })}
+            </div>
         </CoffeeListContainer>
     )
 }
