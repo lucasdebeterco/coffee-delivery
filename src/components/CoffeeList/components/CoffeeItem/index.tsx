@@ -1,5 +1,5 @@
-import { CoffeeItemContainer, CoffeeItemPrice } from './styles.ts';
-import { ICoffee } from '../../../../@types/coffee';
+import { CoffeeItemContainer, CoffeeItemPrice, CoffeeItemTypesWrapper } from './styles.ts';
+import { ICoffee } from '../../../../@types/coffee.ts';
 import { ShoppingCart } from '@phosphor-icons/react';
 
 interface ICoffeeItem {
@@ -9,8 +9,14 @@ interface ICoffeeItem {
 export function CoffeeItem({coffee}: ICoffeeItem) {
     return (
         <CoffeeItemContainer>
-            <img src={coffee.image} alt=''/>
-            <span>{coffee.type}</span>
+            <img src={`/coffees/${coffee.image}.png`} alt=''/>
+
+            <CoffeeItemTypesWrapper>
+                {coffee.type.map(coffeeType =>
+                    <span>{coffeeType}</span>
+                )}
+            </CoffeeItemTypesWrapper>
+
             <span>{coffee.title}</span>
             <span>{coffee.description}</span>
 
