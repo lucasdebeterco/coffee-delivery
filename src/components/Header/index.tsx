@@ -1,6 +1,6 @@
 import logo from '../../assets/logo.svg';
 import { MapPin, ShoppingCart } from '@phosphor-icons/react';
-import { HeaderContainer } from './styles.ts';
+import { HeaderContainer, HeaderInfo } from './styles.ts';
 
 export function Header() {
     return (
@@ -8,15 +8,15 @@ export function Header() {
             <div>
                 <img src={logo} alt='Logo'/>
             </div>
-            <div>
-                <div>
-                    <MapPin weight="fill"/>
+            <HeaderInfo>
+                <div className='headerInfo location'>
+                    <MapPin weight="fill" size={22} color='#8047F8' />
                     Porto Alegre, RS
                 </div>
-                <div className='cart'>
-                    <ShoppingCart weight="fill"/>
+                <div className='headerInfo cart'>
+                    <ShoppingCart weight="fill" size={22}/>
                 </div>
-            </div>
+            </HeaderInfo>
         </HeaderContainer>
     )
 }
