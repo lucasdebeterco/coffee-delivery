@@ -1,7 +1,8 @@
 import { CoffeeListContainer } from './styles.ts'
-import { coffees } from '../../data/coffees.ts';
+
 import { CoffeeItem } from './components/CoffeeItem';
-import { ICoffee } from '../../@types/coffee.ts';
+import { coffees } from '../../../../data/coffees.ts';
+import { ICoffee } from '../../../../@types/coffee.ts';
 
 export function CoffeeList() {
     return (

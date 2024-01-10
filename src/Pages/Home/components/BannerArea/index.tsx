@@ -1,6 +1,6 @@
 import { BannerAreaContainer, BenefitsWrapper } from './styles.ts';
 import { Coffee, Package, ShoppingCart, Timer } from '@phosphor-icons/react';
-import BannerImage from '../../assets/banner.svg'
+import BannerImage from '../../../../assets/banner.svg'
 
 export function BannerArea() {
     return (

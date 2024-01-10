@@ -1,6 +1,7 @@
 import { CoffeeItemContainer, CoffeeItemPrice, CoffeeItemTypesWrapper } from './styles.ts';
-import { ICoffee } from '../../../../@types/coffee.ts';
+
 import { ShoppingCart } from '@phosphor-icons/react';
+import { ICoffee } from '../../../../../../@types/coffee.ts';
 
 interface ICoffeeItem {
     coffee: ICoffee
