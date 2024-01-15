@@ -21,6 +21,10 @@ export const PaymentOptionsArea = styled.div`
         gap: 12px;
         padding: 16px;
         
+        background: ${(props) => props.theme['base-button']};
+        border-radius: 6px;
+        border: 0;
+        
         text-transform: uppercase;
         font-size: 0.75rem;
     }

@@ -1,21 +1,21 @@
 import { EnderecoEntrega } from './components/EnderecoEntrega';
 import { Pagamento } from './components/Pagamento';
 import { Resumo } from './components/Resumo';
-import { CheckoutContainer } from './styles.ts';
+import { CheckoutContainer, CheckoutSection, SectionTitle } from './styles.ts';
 
 export function Checkout() {
     return (
         <CheckoutContainer>
-            <div>
-                Complete seu pedido
-                <EnderecoEntrega />
-                <Pagamento />
-            </div>
+            <CheckoutSection>
+                <SectionTitle>Complete seu pedido</SectionTitle>
+                <EnderecoEntrega/>
+                <Pagamento/>
+            </CheckoutSection>
 
-            <div>
-                Cafés selecionados
+            <CheckoutSection>
+                <SectionTitle>Cafés selecionados</SectionTitle>
                 <Resumo />
-            </div>
+            </CheckoutSection>
         </CheckoutContainer>
     )
 }

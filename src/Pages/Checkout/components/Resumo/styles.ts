@@ -9,4 +9,8 @@ export const ResumoContainer = styled.div`
 
     border-radius: 6px;
     background: ${(props) => props.theme['base-card']};
+
+    strong {
+        color: ${(props) => props.theme['base-subtitle']};
+    }
 `
