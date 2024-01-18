@@ -1,8 +1,7 @@
+import { ICoffee } from '../../../../@types/coffee.ts'
+import { coffees } from '../../../../data/coffees.ts'
+import { CoffeeItem } from './components/CoffeeItem'
 import { CoffeeListContainer } from './styles.ts'
-
-import { CoffeeItem } from './components/CoffeeItem';
-import { coffees } from '../../../../data/coffees.ts';
-import { ICoffee } from '../../../../@types/coffee.ts';
 
 export function CoffeeList() {
     return (
@@ -10,7 +9,7 @@ export function CoffeeList() {
         <CoffeeListContainer>
             <h3>Nossos cafés</h3>
 
-            <div className='coffeeList'>
+            <div className="coffeeList">
                 {coffees.map((coffee: ICoffee) =>
                     <CoffeeItem key={coffee.id} coffee={coffee} />
                 )}

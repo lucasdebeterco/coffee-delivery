@@ -1,7 +1,7 @@
-import { EnderecoEntrega } from './components/EnderecoEntrega';
-import { Pagamento } from './components/Pagamento';
-import { Resumo } from './components/Resumo';
-import { CheckoutContainer, CheckoutSection, SectionTitle } from './styles.ts';
+import { EnderecoEntrega } from './components/EnderecoEntrega'
+import { Pagamento } from './components/Pagamento'
+import { Resumo } from './components/Resumo'
+import { CheckoutContainer, CheckoutSection, SectionTitle } from './styles.ts'
 
 export function Checkout() {
     return (

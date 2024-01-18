@@ -1,5 +1,6 @@
-import { CheckoutCardHeaderContainer } from './styles.ts';
-import { ReactNode } from 'react';
+import { ReactNode } from 'react'
+
+import { CheckoutCardHeaderContainer } from './styles.ts'
 
 interface ICheckoutCardHeader {
     icon: ReactNode
@@ -11,9 +12,9 @@ export function CheckoutCardHeader({icon, title, subtitle}: ICheckoutCardHeader)
     return (
         <CheckoutCardHeaderContainer>
             {icon}
-            <div className='titleWrapper'>
-                <strong className='headerTitle'>{title}</strong>
-                <span className='headerSubTitle'>{subtitle}</span>
+            <div className="titleWrapper">
+                <strong className="headerTitle">{title}</strong>
+                <span className="headerSubTitle">{subtitle}</span>
             </div>
         </CheckoutCardHeaderContainer>
     )

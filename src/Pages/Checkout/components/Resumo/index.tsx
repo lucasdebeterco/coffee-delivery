@@ -1,4 +1,4 @@
-import { ResumoContainer } from './styles.ts';
+import { ResumoContainer } from './styles.ts'
 
 export function Resumo() {
     return (

@@ -1,4 +1,5 @@
 import 'styled-components'
+
 import { defaultTheme } from '../styles/themes/default.ts'
 
 export type ThemeType = typeof defaultTheme

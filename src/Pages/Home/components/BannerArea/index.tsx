@@ -1,6 +1,7 @@
-import { BannerAreaContainer, BenefitsWrapper } from './styles.ts';
-import { Coffee, Package, ShoppingCart, Timer } from '@phosphor-icons/react';
+import { Coffee, Package, ShoppingCart, Timer } from '@phosphor-icons/react'
+
 import BannerImage from '../../../../assets/banner.svg'
+import { BannerAreaContainer, BenefitsWrapper } from './styles.ts'
 
 export function BannerArea() {
     return (
@@ -27,7 +28,7 @@ export function BannerArea() {
                 </div>
             </BenefitsWrapper>
             <div>
-                <img src={BannerImage} alt='Coffee cup banner'/>
+                <img src={BannerImage} alt="Coffee cup banner"/>
             </div>
         </BannerAreaContainer>
     )
