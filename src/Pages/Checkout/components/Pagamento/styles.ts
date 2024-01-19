@@ -1,16 +1,5 @@
 import styled from 'styled-components'
 
-export const PagamentoContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 40px;
-    gap: 32px;
-
-    border-radius: 6px;
-    background: ${(props) => props.theme['base-card']};
-`
-
 export const PaymentOptionsArea = styled.div`
     display: flex;
     gap: 12px;

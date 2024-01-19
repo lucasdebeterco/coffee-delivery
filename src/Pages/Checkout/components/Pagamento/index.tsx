@@ -1,11 +1,12 @@
 import { Bank, CreditCard, CurrencyDollar, Money } from '@phosphor-icons/react'
 
+import { CheckoutCardContainer } from '../../styles.ts'
 import { CheckoutCardHeader } from '../CheckoutCardHeader'
-import { PagamentoContainer, PaymentOptionsArea } from './styles.ts'
+import { PaymentOptionsArea } from './styles.ts'
 
 export function Pagamento() {
     return (
-        <PagamentoContainer>
+        <CheckoutCardContainer>
             <CheckoutCardHeader
                 icon={<CurrencyDollar size={22} color="#8047F8"/>}
                 title="Pagamento"
@@ -26,6 +27,6 @@ export function Pagamento() {
                     Dinheiro
                 </button>
             </PaymentOptionsArea>
-        </PagamentoContainer>
+        </CheckoutCardContainer>
     )
 }

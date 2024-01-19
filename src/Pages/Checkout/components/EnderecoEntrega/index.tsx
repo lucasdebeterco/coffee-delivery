@@ -1,11 +1,12 @@
 import { MapPinLine } from '@phosphor-icons/react'
 
+import { CheckoutCardContainer } from '../../styles.ts'
 import { CheckoutCardHeader } from '../CheckoutCardHeader'
-import { EnderecoEntregaContainer, EnderecoFormArea } from './styles.ts'
+import { EnderecoFormArea } from './styles.ts'
 
 export function EnderecoEntrega() {
     return (
-        <EnderecoEntregaContainer>
+        <CheckoutCardContainer>
             <CheckoutCardHeader
                 icon={<MapPinLine size={22} color="#C47F17"/>}
                 title="Endereço de Entrega"
@@ -21,6 +22,6 @@ export function EnderecoEntrega() {
                 <input id="cidade" name="cidade" placeholder="Cidade"/>
                 <input id="uf" name="uf" placeholder="UF"/>
             </EnderecoFormArea>
-        </EnderecoEntregaContainer>
+        </CheckoutCardContainer>
     )
 }
