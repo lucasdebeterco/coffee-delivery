@@ -1,24 +1,33 @@
-import { Trash } from '@phosphor-icons/react'
+import { Minus, Plus, Trash } from '@phosphor-icons/react'
 
-import { CartItemContainer } from './styles.ts'
+import { ActionsAreaWrapper, CartItemContainer, ItemDataWrapper } from './styles.ts'
 
 export function CartItem() {
     return (
         <CartItemContainer>
-            <img src={''} />
+            <ItemDataWrapper>
+                <img src="/coffees/cafe-com-leite.png" alt=""/>
 
-            <div>
-                <span>Expresso Tradicional</span>
-                <div>
-                    <button>+</button>
-                    <span>1</span>
-                    <button>-</button>
+                <div className="titleActionsArea">
+                    <span className="itemTitle">Expresso Tradicional</span>
+
+                    <ActionsAreaWrapper>
+                        <div className="quantityArea">
+                            <Plus size={14} color="#8047F8"/>
+                            <span>1</span>
+                            <Minus size={14} color="#8047F8"/>
+                        </div>
+
+                        <button>
+                            <Trash size={16} color="#8047F8"/>
+                            <span>Remover</span>
+                        </button>
+                    </ActionsAreaWrapper>
                 </div>
+            </ItemDataWrapper>
 
-                <button><Trash />Remover</button>
-            </div>
 
-            <strong>RS 9,90</strong>
+            <strong className="priceItem">RS 9,90</strong>
         </CartItemContainer>
     )
 }

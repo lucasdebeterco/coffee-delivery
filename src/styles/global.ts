@@ -18,4 +18,8 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 1rem;
         color: ${(props) => props.theme['base-text']};
     }
+    
+    button {
+        border: 0;
+    }
 `

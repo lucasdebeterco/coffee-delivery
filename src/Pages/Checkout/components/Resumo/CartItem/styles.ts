@@ -2,5 +2,58 @@ import styled from 'styled-components'
 
 export const CartItemContainer = styled.div`
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 0;
+    border-bottom: 1px solid ${(props) => props.theme['base-button']};
+    
+    .priceItem {
+        white-space: nowrap;
+    }
 `
 
+export const ItemDataWrapper = styled.div`
+    display: flex;
+
+    img {
+        max-width: 64px;
+        height: auto;
+        margin-right: 20px;
+    }
+    
+    .titleActionsArea {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .itemTitle {
+        color: ${(props) => props.theme['base-subtitle']};
+    }
+`
+
+export const ActionsAreaWrapper = styled.div`
+    display: flex;
+    gap: 8px;
+    
+    .quantityArea {
+        display: flex;
+        place-items: center;
+        padding: 8px;
+        gap: 6px;
+        
+        border-radius: 6px;
+        background: ${(props) => props.theme['base-button']};
+    }
+    
+    button {
+        display: flex;
+        place-items: center;
+        padding: 8px;
+        gap: 6px;
+        
+        border-radius: 6px;
+        background: ${(props) => props.theme['base-button']};
+    }
+`
