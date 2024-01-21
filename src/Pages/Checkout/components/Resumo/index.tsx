@@ -1,6 +1,6 @@
 import { CheckoutCardContainer } from '../../styles.ts'
 import { CartItem } from './CartItem'
-import { CartItemsWrapper, PriceArea } from './styles.ts'
+import { CartItemsWrapper, ConfirmCheckoutButton, PriceArea } from './styles.ts'
 
 export function Resumo() {
     return (
@@ -14,19 +14,21 @@ export function Resumo() {
             <PriceArea>
                 <div className="priceInfo">
                     <span>Total de itens</span>
-                    <strong>R$ 29,70</strong>
+                    <span>R$ 29,70</span>
                 </div>
                 <div className="priceInfo">
                     <span>Entrega</span>
-                    <strong>R$ 3,50</strong>
+                    <span>R$ 3,50</span>
                 </div>
                 <div className="priceInfo totalArea">
                     <span>Total</span>
-                    <strong>R$ 33,20</strong>
+                    <span>R$ 33,20</span>
                 </div>
             </PriceArea>
 
-            <button>Confirmar Pedido</button>
+            <ConfirmCheckoutButton className="confirmCheckout">
+                Confirmar Pedido
+            </ConfirmCheckoutButton>
         </CheckoutCardContainer>
     )
 }

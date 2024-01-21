@@ -41,7 +41,7 @@ export const ActionsAreaWrapper = styled.div`
         display: flex;
         place-items: center;
         padding: 8px;
-        gap: 6px;
+        gap: 8px;
         
         border-radius: 6px;
         background: ${(props) => props.theme['base-button']};
@@ -53,7 +53,16 @@ export const ActionsAreaWrapper = styled.div`
         padding: 8px;
         gap: 6px;
         
+        font-size: 0.875rem;
         border-radius: 6px;
         background: ${(props) => props.theme['base-button']};
+    
+        cursor: pointer;
+        transition: all .15s ease;
+        
+        
+        &:hover {
+            background: ${(props) => props.theme['purple-light']};
+        } 
     }
 `

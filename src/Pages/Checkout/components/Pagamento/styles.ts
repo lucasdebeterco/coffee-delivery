@@ -16,6 +16,13 @@ export const PaymentOptionsArea = styled.div`
         
         text-transform: uppercase;
         font-size: 0.75rem;
+
+        cursor: pointer;
+        transition: all .2s ease;
+        
+        &:hover {
+            background: ${(props) => props.theme['purple-light']};
+        }
     }
     
 `

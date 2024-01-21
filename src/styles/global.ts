@@ -6,6 +6,11 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
     }
+
+    :focus {
+        outline: 0;
+        box-shadow: 0 0 0 2px ${(props) => props.theme['purple-dark']};
+    }
     
     body {
         background: ${(props) => props.theme['background']};
