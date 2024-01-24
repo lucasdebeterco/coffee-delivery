@@ -6,10 +6,9 @@ export const HeaderContainer = styled.header`
     justify-content: space-between;
 
     padding: 32px 0;
-
 `
 
-export const HeaderInfo = styled.header`
+export const HeaderInfo = styled.div`
     display: flex;
     align-items: center;
     gap: 0.75rem;
