@@ -17,7 +17,7 @@ export const PedidoConfirmadoTitle = styled.div`
     flex-direction: column;
     
     h1 {
-        font-family: 'Baloo 2';
+        font-family: 'Baloo 2', sans-serif;
         color: ${(props) => props.theme['yellow-dark']};
         font-size: 2rem;
     }
@@ -36,8 +36,10 @@ export const DadosEntrega = styled.div`
     min-width: 586px;
     padding: 40px;
     
-    border: 1px solid ${(props) => props.theme['yellow-dark']};
-    border-radius: 6px 36px 6px 36px;
+    background: linear-gradient(white, white) padding-box,
+    linear-gradient(to right, #C47F17, #4B2995) border-box;
+    border-radius: 6px 36px;
+    border: 1px solid transparent;
 `
 
 export const ItemDadosEntrega = styled.div`

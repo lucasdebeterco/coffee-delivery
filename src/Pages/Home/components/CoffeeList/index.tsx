@@ -7,7 +7,7 @@ export function CoffeeList() {
     return (
 
         <CoffeeListContainer>
-            <h3>Nossos cafés</h3>
+            <h2>Nossos cafés</h2>
 
             <div className="coffeeList">
                 {coffees.map((coffee: ICoffee) =>

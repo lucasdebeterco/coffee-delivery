@@ -5,9 +5,16 @@ export const CoffeeListContainer = styled.div`
     flex-direction: column;
     gap: 54px;
     
+    h2 {
+        font-size: 2rem;
+        font-family: "Baloo 2", sans-serif;
+        color: ${(props) => props.theme['base-subtitle']};
+    }
+    
     .coffeeList {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 32px;
+        place-items: center;
     }
 `

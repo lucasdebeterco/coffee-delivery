@@ -11,6 +11,10 @@ export const CartItemContainer = styled.div`
     .priceItem {
         white-space: nowrap;
     }
+    
+    &:first-child {
+        padding-top: 0;
+    }
 `
 
 export const ItemDataWrapper = styled.div`
