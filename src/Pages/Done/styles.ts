@@ -17,7 +17,6 @@ export const PedidoConfirmadoTitle = styled.div`
     flex-direction: column;
     
     h1 {
-        font-family: 'Baloo 2', sans-serif;
         color: ${(props) => props.theme['yellow-dark']};
         font-size: 2rem;
     }

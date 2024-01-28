@@ -14,7 +14,6 @@ export const CoffeeItemContainer = styled.div`
     
     h3 {
         font-size: 1.3rem;
-        font-family: "Baloo 2", sans-serif;
         color: ${(props) => props.theme['base-subtitle']};
     }
     
@@ -75,9 +74,15 @@ export const CoffeeItemPrice = styled.div`
         align-items: center;
         
         padding: 0.5rem;
-        
         background: ${(props) => props.theme['purple-dark']};
         border-radius: 8px;
+        
+        
+        transition: background .15s ease;
+        
+        &:hover {
+            background: ${(props) => props.theme['purple-dark-hover']};
+        }
     }
 `
 

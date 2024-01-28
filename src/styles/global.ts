@@ -6,11 +6,6 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
     }
-
-    :focus {
-        outline: 0;
-        box-shadow: 0 0 0 2px ${(props) => props.theme['purple-dark']};
-    }
     
     body {
         background: ${(props) => props.theme['background']};
@@ -23,9 +18,23 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 1rem;
         color: ${(props) => props.theme['base-text']};
     }
+
+    :focus {
+        outline: 0;
+        box-shadow: 0 0 0 1px ${(props) => props.theme['purple-dark']};
+    }
+
+    input:focus {
+        outline: 0;
+        box-shadow: 0 0 0 1px ${(props) => props.theme['yellow-dark']};
+    }
     
     button {
         border: 0;
         cursor: pointer;
+    }
+    
+    h1, h2, h3 {
+        font-family: 'Baloo 2', sans-serif;
     }
 `

@@ -7,7 +7,6 @@ export const CoffeeListContainer = styled.div`
     
     h2 {
         font-size: 2rem;
-        font-family: "Baloo 2", sans-serif;
         color: ${(props) => props.theme['base-subtitle']};
     }
     
