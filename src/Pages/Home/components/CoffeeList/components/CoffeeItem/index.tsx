@@ -20,7 +20,7 @@ export function CoffeeItem({coffee}: ICoffeeItem) {
     return (
         <CoffeeItemContainer>
             <CoffeeImageContainer>
-                <img src={`/coffees/${coffee.image}.png`} alt=""/>
+                <img src={`/coffees/${coffee.image}.png`} alt="" draggable={false}/>
             </CoffeeImageContainer>
 
             <CoffeeItemTypesWrapper>

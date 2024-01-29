@@ -7,7 +7,7 @@ export function Header() {
     return (
         <HeaderContainer>
             <div>
-                <img src={logo} alt="Logo"/>
+                <img src={logo} alt="Logo" draggable={false}/>
             </div>
             <HeaderInfo>
                 <div className="headerInfo location">

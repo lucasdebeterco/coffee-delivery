@@ -74,14 +74,14 @@ export const CoffeeItemPrice = styled.div`
         align-items: center;
         
         padding: 0.5rem;
-        background: ${(props) => props.theme['purple-dark']};
+        background: ${(props) => props.theme['purple']};
         border-radius: 8px;
         
         
         transition: background .15s ease;
         
         &:hover {
-            background: ${(props) => props.theme['purple-dark-hover']};
+            background: ${(props) => props.theme['purple-dark']};
         }
     }
 `

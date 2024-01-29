@@ -40,7 +40,7 @@ export function BannerArea() {
             </div>
 
             <div>
-                <img src={BannerImage} alt="Coffee cup banner"/>
+                <img src={BannerImage} alt="Coffee cup banner" draggable={false}/>
             </div>
         </BannerAreaContainer>
     )
