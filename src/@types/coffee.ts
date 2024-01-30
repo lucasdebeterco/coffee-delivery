@@ -1,5 +1,5 @@
 export interface ICoffee {
-    id: string
+    id: number
     type: string[],
     image: string
     title: string,

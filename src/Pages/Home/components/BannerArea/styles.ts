@@ -20,7 +20,7 @@ export const BannerAreaContainer = styled.div`
 
 export const BenefitsWrapper = styled.div`
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(314px, 1fr));
     row-gap: 16px;
 
     margin-top: 66px;

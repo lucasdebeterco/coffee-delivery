@@ -1,8 +1,11 @@
 import { Minus, Plus, Trash } from '@phosphor-icons/react'
+import { useTheme } from 'styled-components'
 
 import { ActionsAreaWrapper, CartItemContainer, ItemDataWrapper } from './styles.ts'
 
 export function CartItem() {
+    const theme = useTheme()
+
     return (
         <CartItemContainer>
             <ItemDataWrapper>
@@ -13,13 +16,13 @@ export function CartItem() {
 
                     <ActionsAreaWrapper>
                         <div className="quantityArea">
-                            <Plus size={14} color="#8047F8"/>
+                            <Plus size={14} color={theme['purple']}/>
                             <span>1</span>
-                            <Minus size={14} color="#8047F8"/>
+                            <Minus size={14} color={theme['purple']} />
                         </div>
 
                         <button>
-                            <Trash size={16} color="#8047F8"/>
+                            <Trash size={16} color={theme['purple']}/>
                             <span>Remover</span>
                         </button>
                     </ActionsAreaWrapper>

@@ -1,6 +1,23 @@
+enum CoffeeTypes {
+    EXPRESSO_TRADICIONAL ,
+    EXPRESSO_AMERICANO,
+    EXPRESSO_CREMOSO,
+    EXPRESSO_GELADO,
+    CAFE_COM_LEITE  ,
+    LATTE,
+    CAPUCCINO,
+    MACCHIATO,
+    MOCACCINO,
+    CHOCOLATE_QUENTE,
+    CUBANO,
+    HAVAIANO,
+    ARABE,
+    IRLANDES
+}
+
 export const coffees = [
     {
-        id: 'ea5468f1566a',
+        id: CoffeeTypes.EXPRESSO_TRADICIONAL,
         image: 'expresso',
         type: [
             'Tradicional'
@@ -9,7 +26,7 @@ export const coffees = [
         description: 'O tradicional café feito com água quente e grãos moídos',
         price: 9.9
     }, {
-        id: 'a517ebabce47',
+        id: CoffeeTypes.EXPRESSO_AMERICANO,
         image: 'americano',
         type: [
             'Tradicional'
@@ -18,7 +35,7 @@ export const coffees = [
         description: 'Expresso diluído, menos intenso que o tradicional\n',
         price: 9.9
     }, {
-        id: 'a2273b4636d2',
+        id: CoffeeTypes.EXPRESSO_CREMOSO,
         image: 'expresso-cremoso',
         type: [
             'Tradicional'
@@ -27,7 +44,7 @@ export const coffees = [
         description: 'Café expresso tradicional com espuma cremosa',
         price: 9.9
     }, {
-        id: 'b29950d6f8c8',
+        id: CoffeeTypes.EXPRESSO_GELADO,
         image: 'cafe-gelado',
         type: [
             'Tradicional',
@@ -37,7 +54,7 @@ export const coffees = [
         description: 'Bebida preparada com café expresso e cubos de gelo',
         price: 9.9
     }, {
-        id: '1263bbf83fdb',
+        id: CoffeeTypes.CAFE_COM_LEITE,
         image: 'cafe-com-leite',
         type: [
             'Tradicional',
@@ -47,7 +64,7 @@ export const coffees = [
         description: 'Meio a meio de expresso tradicional com leite vaporizado',
         price: 9.9
     }, {
-        id: 'defa1b52fdf8',
+        id: CoffeeTypes.LATTE,
         image: 'latte',
         type: [
             'Tradicional',
@@ -57,7 +74,7 @@ export const coffees = [
         description: 'Uma dose de café expresso com o dobro de leite e espuma cremosa',
         price: 9.9
     }, {
-        id: 'ad35f968fc91',
+        id: CoffeeTypes.CAPUCCINO,
         image: 'capuccino',
         type: [
             'Tradicional',
@@ -67,7 +84,7 @@ export const coffees = [
         description: 'Bebida com canela feita de doses iguais de café, leite e espuma',
         price: 9.9
     }, {
-        id: '217875d806be',
+        id: CoffeeTypes.MACCHIATO,
         image: 'macchiato',
         type: [
             'Tradicional',
@@ -77,7 +94,7 @@ export const coffees = [
         description: 'Café expresso misturado com um pouco de leite quente e espuma',
         price: 9.9
     }, {
-        id: '6d239b00d044',
+        id: CoffeeTypes.MOCACCINO,
         image: 'mocaccino',
         type: [
             'Tradicional',
@@ -87,7 +104,7 @@ export const coffees = [
         description: 'Café expresso com calda de chocolate, pouco leite e espuma',
         price: 9.9
     }, {
-        id: 'b9f852017801',
+        id: CoffeeTypes.CHOCOLATE_QUENTE,
         image: 'chocolate-quente',
         type: [
             'Especial',
@@ -97,7 +114,7 @@ export const coffees = [
         description: 'Bebida feita com chocolate dissolvido no leite quente e café',
         price: 9.9
     }, {
-        id: '87407a79f53c',
+        id: CoffeeTypes.CUBANO,
         image: 'cubano',
         type: [
             'Especial',
@@ -108,7 +125,7 @@ export const coffees = [
         description: 'Drink gelado de café expresso com rum, creme de leite e hortelã',
         price: 9.9
     }, {
-        id: '2f991264976b',
+        id: CoffeeTypes.HAVAIANO,
         image: 'havaiano',
         type: [
             'Especial'
@@ -117,7 +134,7 @@ export const coffees = [
         description: 'Bebida adocicada preparada com café e leite de coco',
         price: 9.9
     }, {
-        id: 'c00f4e47a06f',
+        id: CoffeeTypes.ARABE,
         image: 'arabe',
         type: [
             'Especial'
@@ -126,7 +143,7 @@ export const coffees = [
         description: 'Bebida preparada com grãos de café árabe e especiarias',
         price: 9.9
     }, {
-        id: 'f37ef356fb54',
+        id: CoffeeTypes.IRLANDES,
         image: 'irlandes',
         type: [
             'Especial',

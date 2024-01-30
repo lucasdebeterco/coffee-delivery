@@ -1,14 +1,17 @@
 import { MapPinLine } from '@phosphor-icons/react'
+import { useTheme } from 'styled-components'
 
 import { CheckoutCardContainer } from '../../styles.ts'
 import { CheckoutCardHeader } from '../CheckoutCardHeader'
 import { EnderecoFormArea } from './styles.ts'
 
 export function EnderecoEntrega() {
+    const theme = useTheme()
+
     return (
         <CheckoutCardContainer>
             <CheckoutCardHeader
-                icon={<MapPinLine size={22} color="#C47F17"/>}
+                icon={<MapPinLine size={22} color={theme['yellow-dark']} />}
                 title="Endereço de Entrega"
                 subtitle="Informe o endereço onde deseja receber seu pedido"
             />

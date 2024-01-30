@@ -1,9 +1,12 @@
 import { MapPin, ShoppingCart } from '@phosphor-icons/react'
+import { useTheme } from 'styled-components'
 
 import logo from '../../assets/logo.svg'
 import { HeaderContainer, HeaderInfo } from './styles.ts'
 
 export function Header() {
+    const theme = useTheme()
+
     return (
         <HeaderContainer>
             <div>
@@ -11,7 +14,7 @@ export function Header() {
             </div>
             <HeaderInfo>
                 <div className="headerInfo location">
-                    <MapPin weight="fill" size={22} color="#8047F8" />
+                    <MapPin weight="fill" size={22} color={theme['purple']} />
                     Porto Alegre, RS
                 </div>
                 <div className="headerInfo cart">

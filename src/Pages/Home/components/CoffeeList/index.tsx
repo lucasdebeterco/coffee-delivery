@@ -12,7 +12,6 @@ export function CoffeeList() {
     console.log(cart)
 
     return (
-
         <CoffeeListContainer>
             <h2>Nossos cafés</h2>
 

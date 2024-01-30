@@ -1,7 +1,9 @@
 import { Minus, Plus, ShoppingCart } from '@phosphor-icons/react'
+import { useContext } from 'react'
 import { useTheme } from 'styled-components'
 
 import { ICoffee } from '../../../../../../@types/coffee.ts'
+import { CoffeeContext } from '../../../../../../contexts/CoffeeContext.tsx'
 import {
     CoffeeImageContainer,
     CoffeeItemContainer,
@@ -16,6 +18,11 @@ interface ICoffeeItem {
 
 export function CoffeeItem({coffee}: ICoffeeItem) {
     const theme = useTheme()
+    const { setCartItems } = useContext(CoffeeContext)
+
+    function handleAddCart(coffeeId: number, qtd: number) {
+        setCartItems(coffeeId, qtd)
+    }
 
     return (
         <CoffeeItemContainer>
@@ -25,7 +32,7 @@ export function CoffeeItem({coffee}: ICoffeeItem) {
 
             <CoffeeItemTypesWrapper>
                 {coffee.type.map(coffeeType =>
-                    <strong>{coffeeType}</strong>
+                    <strong key={coffeeType}>{coffeeType}</strong>
                 )}
             </CoffeeItemTypesWrapper>
 
@@ -45,9 +52,16 @@ export function CoffeeItem({coffee}: ICoffeeItem) {
 
                 <div className="qtdSelectorBuy">
                     <ItemQuantitySelector>
-                        <Minus size={14} color={theme['purple']} />
+                        <Minus
+                            size={14}
+                            color={theme['purple']}
+                        />
                         <span>1</span>
-                        <Plus size={14} color={theme['purple']} />
+                        <Plus
+                            size={14}
+                            color={theme['purple']}
+                            onClick={() => handleAddCart(coffee.id, 1)}
+                        />
                     </ItemQuantitySelector>
 
                     <button>

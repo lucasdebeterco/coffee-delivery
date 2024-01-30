@@ -12,7 +12,7 @@ export const CoffeeListContainer = styled.div`
     
     .coffeeList {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
         gap: 32px;
         place-items: center;
     }

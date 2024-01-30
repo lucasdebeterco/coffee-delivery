@@ -4,7 +4,7 @@ import { ICoffee } from '../@types/coffee.ts'
 
 interface ICoffeeContext {
     cart: ICoffee[]
-    setCartItems: () => void
+    setCartItems: (coffee: number, qtd: number) => void
 }
 
 export const CoffeeContext = createContext({} as ICoffeeContext)
@@ -16,8 +16,10 @@ interface ICoffeeContextProviderProps {
 export function CoffeeContextProvider({children}: ICoffeeContextProviderProps) {
     const [cart, /*setCart*/] = useState([])
 
-    function setCartItems() {
-        console.log('setando carrinho')
+
+
+    function setCartItems(coffee: number, qtd: number) {
+        console.log(coffee, qtd)
     }
 
     return (

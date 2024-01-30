@@ -4,7 +4,7 @@ import { CartItemsWrapper, ConfirmCheckoutButton, PriceArea } from './styles.ts'
 
 export function Resumo() {
     return (
-        <CheckoutCardContainer hasCustomBorderRadius>
+        <CheckoutCardContainer hasCustomBorderRadius={true}>
             <CartItemsWrapper>
                 <CartItem />
                 <CartItem />
