@@ -1,10 +1,12 @@
 import { createContext, ReactNode, useState } from 'react'
 
-import { ICoffee } from '../@types/coffee.ts'
+interface ICart {
+    [key: number]: number
+}
 
 interface ICoffeeContext {
-    cart: ICoffee[]
-    setCartItems: (coffee: number, qtd: number) => void
+    cart: ICart | undefined
+    setCartItems: (coffeeId: number, qtd: number) => void
 }
 
 export const CoffeeContext = createContext({} as ICoffeeContext)
@@ -14,12 +16,14 @@ interface ICoffeeContextProviderProps {
 }
 
 export function CoffeeContextProvider({children}: ICoffeeContextProviderProps) {
-    const [cart, /*setCart*/] = useState([])
+    const [cart, setCart] = useState<ICart>({})
 
-
-
-    function setCartItems(coffee: number, qtd: number) {
-        console.log(coffee, qtd)
+    function setCartItems(coffeeId: number, qtd: number) {
+        setCart((prevState) => {
+            const newState = { ...prevState }
+            newState[coffeeId] = newState[coffeeId] ? newState[coffeeId] + qtd : qtd
+            return newState
+        })
     }
 
     return (

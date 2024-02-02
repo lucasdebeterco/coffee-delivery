@@ -112,8 +112,7 @@ export const ItemQuantitySelector = styled.div`
     border-radius: 6px;
     background: ${(props) => props.theme['base-button']};
     overflow: hidden;
-    
-    
+    user-select: none;
 `
 
 

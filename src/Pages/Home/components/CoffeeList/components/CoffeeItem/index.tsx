@@ -18,7 +18,7 @@ interface ICoffeeItem {
 
 export function CoffeeItem({coffee}: ICoffeeItem) {
     const theme = useTheme()
-    const { setCartItems } = useContext(CoffeeContext)
+    const { cart, setCartItems } = useContext(CoffeeContext)
 
     function handleAddCart(coffeeId: number, qtd: number) {
         setCartItems(coffeeId, qtd)
@@ -55,8 +55,9 @@ export function CoffeeItem({coffee}: ICoffeeItem) {
                         <Minus
                             size={14}
                             color={theme['purple']}
+                            onClick={() => handleAddCart(coffee.id, -1)}
                         />
-                        <span>1</span>
+                        <span>{(cart && cart[coffee.id]) ?? 0}</span>
                         <Plus
                             size={14}
                             color={theme['purple']}
