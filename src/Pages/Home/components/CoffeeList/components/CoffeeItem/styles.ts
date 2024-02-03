@@ -113,6 +113,10 @@ export const ItemQuantitySelector = styled.div`
     background: ${(props) => props.theme['base-button']};
     overflow: hidden;
     user-select: none;
+    
+    svg {
+        cursor: pointer;
+    }
 `
 
 

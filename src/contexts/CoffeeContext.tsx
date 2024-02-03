@@ -18,10 +18,11 @@ interface ICoffeeContextProviderProps {
 export function CoffeeContextProvider({children}: ICoffeeContextProviderProps) {
     const [cart, setCart] = useState<ICart>({})
 
-    function setCartItems(coffeeId: number, qtd: number) {
+    function setCartItems(coffeeId: number, itemQtd: number) {
         setCart((prevState) => {
             const newState = { ...prevState }
-            newState[coffeeId] = newState[coffeeId] ? newState[coffeeId] + qtd : qtd
+
+            newState[coffeeId] = itemQtd
             return newState
         })
     }
