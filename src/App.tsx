@@ -1,3 +1,4 @@
+import { Toaster } from 'react-hot-toast'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 
@@ -23,6 +24,11 @@ function App() {
                     </Routes>
                 </CoffeeContextProvider>
             </BrowserRouter>
+
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+            />
 
             <GlobalStyle />
         </ThemeProvider>

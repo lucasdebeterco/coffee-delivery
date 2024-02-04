@@ -31,7 +31,26 @@ export const HeaderInfo = styled.div`
     }
     
     .cart {
+        position: relative;
         background: ${(props) => props.theme['yellow-light']};
         color: ${(props) => props.theme['yellow-dark']};
+    }
+    
+    .cartCount {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        width: 20px;
+        height: 20px;
+        font-size: 0.75rem;
+        
+        border-radius: 50%;
+        background: ${(props) => props.theme['yellow-dark']};
+        color: #fff;
+        font-weight: bold;
     }
 `

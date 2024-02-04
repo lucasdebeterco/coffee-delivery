@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useState } from 'react'
+import toast from 'react-hot-toast'
 
 interface ICart {
     [key: number]: number
@@ -25,6 +26,8 @@ export function CoffeeContextProvider({children}: ICoffeeContextProviderProps) {
             newState[coffeeId] = itemQtd
             return newState
         })
+
+        toast.success('Adicionado ao carrinho!')
     }
 
     return (
