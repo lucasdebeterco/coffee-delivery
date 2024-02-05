@@ -1,27 +1,44 @@
 import { Minus, Plus, Trash } from '@phosphor-icons/react'
+import { useContext } from 'react'
 import { useTheme } from 'styled-components'
 
+import { CoffeeContext, ICart } from '../../../../../contexts/CoffeeContext.tsx'
+import { coffees } from '../../../../../data/coffees.ts'
 import { ActionsAreaWrapper, CartItemContainer, ItemDataWrapper } from './styles.ts'
 
-export function CartItem() {
+interface CartItemProps {
+    coffeeItemCart: ICart
+}
+
+export function CartItem({coffeeItemCart}: CartItemProps) {
     const theme = useTheme()
+    const { removeCartItem, changeCartItemQuantity } = useContext(CoffeeContext)
+    const coffeeItemData = coffees[Number(Object.keys(coffeeItemCart))]
 
     return (
         <CartItemContainer>
             <ItemDataWrapper>
-                <img src="/coffees/cafe-com-leite.png" alt=""/>
+                <img src={`/coffees/${coffeeItemData.image}.png`} alt=""/>
 
                 <div className="titleActionsArea">
-                    <span className="itemTitle">Expresso Tradicional</span>
+                    <span className="itemTitle">{coffeeItemData.title}</span>
 
                     <ActionsAreaWrapper>
                         <div className="quantityArea">
-                            <Plus size={14} color={theme['purple']}/>
-                            <span>1</span>
-                            <Minus size={14} color={theme['purple']} />
+                            <Minus
+                                size={14}
+                                color={theme['purple']}
+                                onClick={() => changeCartItemQuantity(coffeeItemData.id, -1)}
+                            />
+                            <span>{Number(Object.values(coffeeItemCart))}</span>
+                            <Plus
+                                size={14}
+                                color={theme['purple']}
+                                onClick={() => changeCartItemQuantity(coffeeItemData.id, 1)}
+                            />
                         </div>
 
-                        <button>
+                        <button onClick={() => removeCartItem(coffeeItemData.id)}>
                             <Trash size={16} color={theme['purple']}/>
                             <span>Remover</span>
                         </button>

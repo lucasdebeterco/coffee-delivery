@@ -1,5 +1,6 @@
 import { MapPin, ShoppingCart } from '@phosphor-icons/react'
 import { useContext } from 'react'
+import { NavLink } from 'react-router-dom'
 import { useTheme } from 'styled-components'
 
 import logo from '../../assets/logo.svg'
@@ -13,20 +14,20 @@ export function Header() {
 
     return (
         <HeaderContainer>
-            <div>
+            <NavLink to="/" title="Home">
                 <img src={logo} alt="Logo" draggable={false}/>
-            </div>
+            </NavLink>
             <HeaderInfo>
                 <div className="headerInfo location">
                     <MapPin weight="fill" size={22} color={theme['purple']} />
                     Porto Alegre, RS
                 </div>
-                <div className="headerInfo cart">
+                <NavLink to="/checkout" className="headerInfo cart" title="Cart">
                     <ShoppingCart weight="fill" size={22}/>
                     {!!cartLenght && (
                         <div className="cartCount">{cartLenght}</div>
                     )}
-                </div>
+                </NavLink>
             </HeaderInfo>
         </HeaderContainer>
     )

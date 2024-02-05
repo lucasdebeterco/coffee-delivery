@@ -14,12 +14,13 @@ import {
 
 interface ICoffeeItem {
     coffee: ICoffee
+    coffeeItemQtd: number
 }
 
-export function CoffeeItem({coffee}: ICoffeeItem) {
+export function CoffeeItem({coffee, coffeeItemQtd}: ICoffeeItem) {
     const theme = useTheme()
     const { setCartItems } = useContext(CoffeeContext)
-    const [itemQtd, setItemQtd] = useState(1)
+    const [itemQtd, setItemQtd] = useState(coffeeItemQtd)
 
     function handleChangeQuantity(qtd: number) {
         setItemQtd((prevState) => {
