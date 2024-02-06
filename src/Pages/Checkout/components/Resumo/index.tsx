@@ -1,12 +1,23 @@
 import { useContext } from 'react'
 
 import { CoffeeContext } from '../../../../contexts/CoffeeContext.tsx'
+import { coffees } from '../../../../data/coffees.ts'
+import { formatCurrency } from '../../../../utils/formatCurrency.ts'
 import { CheckoutCardContainer } from '../../styles.ts'
 import { CartItem } from './CartItem'
 import { CartItemsWrapper, ConfirmCheckoutButton, PriceArea } from './styles.ts'
 
 export function Resumo() {
     const { cart } = useContext(CoffeeContext)
+    const valorEntrega = 3.50
+
+    let totalItems = 0
+    let totalEntrega = 0
+
+    cart && Object.keys(cart).forEach((item) => {
+        totalItems += coffees[Number(item)].price * cart[Number(item)]
+        totalEntrega += valorEntrega * cart[Number(item)]
+    })
 
     return (
         <CheckoutCardContainer hasCustomBorderRadius={true}>
@@ -21,15 +32,15 @@ export function Resumo() {
             <PriceArea>
                 <div className="priceInfo">
                     <span>Total de itens</span>
-                    <span>R$ 29,70</span>
+                    <span>{formatCurrency(totalItems)}</span>
                 </div>
                 <div className="priceInfo">
                     <span>Entrega</span>
-                    <span>R$ 3,50</span>
+                    <span>{formatCurrency(totalEntrega)}</span>
                 </div>
                 <div className="priceInfo totalArea">
                     <span>Total</span>
-                    <span>R$ 33,20</span>
+                    <span>{formatCurrency(totalItems + totalEntrega)}</span>
                 </div>
             </PriceArea>
 

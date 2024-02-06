@@ -28,10 +28,9 @@ export function CoffeeContextProvider({children}: ICoffeeContextProviderProps) {
     function setCartItems(coffeeId: number, itemQtd: number) {
         setCart((prevState) => {
             const newState = { ...prevState }
-
             newState[coffeeId] = itemQtd
 
-            localStorage.setItem('cartItems', JSON.stringify(newState))
+            saveItemsInStorage(newState)
             return newState
         })
 
@@ -43,7 +42,7 @@ export function CoffeeContextProvider({children}: ICoffeeContextProviderProps) {
             const newState = { ...prevState }
             delete newState[coffeeId]
 
-            localStorage.setItem('cartItems', JSON.stringify(newState))
+            saveItemsInStorage(newState)
             return newState
         })
 
@@ -55,8 +54,13 @@ export function CoffeeContextProvider({children}: ICoffeeContextProviderProps) {
             const newState = { ...prevState }
             newState[coffeeId] = newState[coffeeId] + qtd <= 1 ? 1 : newState[coffeeId] + qtd
 
+            saveItemsInStorage(newState)
             return newState
         })
+    }
+
+    function saveItemsInStorage(newState: ICart) {
+        localStorage.setItem('cartItems', JSON.stringify(newState))
     }
 
     return (

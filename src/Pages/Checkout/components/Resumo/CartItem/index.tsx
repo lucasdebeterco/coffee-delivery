@@ -4,6 +4,7 @@ import { useTheme } from 'styled-components'
 
 import { CoffeeContext, ICart } from '../../../../../contexts/CoffeeContext.tsx'
 import { coffees } from '../../../../../data/coffees.ts'
+import { formatCurrency } from '../../../../../utils/formatCurrency.ts'
 import { ActionsAreaWrapper, CartItemContainer, ItemDataWrapper } from './styles.ts'
 
 interface CartItemProps {
@@ -47,7 +48,7 @@ export function CartItem({coffeeItemCart}: CartItemProps) {
             </ItemDataWrapper>
 
 
-            <strong className="priceItem">RS 9,90</strong>
+            <strong className="priceItem">{formatCurrency(coffeeItemData.price * Number(Object.values(coffeeItemCart)))}</strong>
         </CartItemContainer>
     )
 }
