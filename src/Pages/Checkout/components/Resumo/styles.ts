@@ -3,13 +3,33 @@ import styled from 'styled-components'
 export const CartItemsWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    
+    padding-right: 8px;
+    max-height: 318px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: ${(props) => props.theme['base-button']};
+        border-radius: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: ${(props) => props.theme['base-hover']};
+        border-radius: 6px;
+    }
+}
 `
 
 export const PriceArea = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    width: 100%;
+    min-width: 338px;
     
     .priceInfo {
         display: flex;

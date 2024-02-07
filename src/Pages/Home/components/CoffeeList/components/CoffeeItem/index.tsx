@@ -4,6 +4,7 @@ import { useTheme } from 'styled-components'
 
 import { ICoffee } from '../../../../../../@types/coffee.ts'
 import { CoffeeContext } from '../../../../../../contexts/CoffeeContext.tsx'
+import { formatCurrency } from '../../../../../../utils/formatCurrency.ts'
 import {
     CoffeeImageContainer,
     CoffeeItemContainer,
@@ -54,7 +55,7 @@ export function CoffeeItem({coffee, coffeeItemQtd}: ICoffeeItem) {
                         R$
                     </span>
                     <span className="price">
-                        {coffee.price}
+                        {formatCurrency(coffee.price)}
                     </span>
                 </CoffeePrice>
 

@@ -49,6 +49,10 @@ export const ActionsAreaWrapper = styled.div`
         
         border-radius: 6px;
         background: ${(props) => props.theme['base-button']};
+
+        svg {
+            cursor: pointer;
+        }
     }
     
     button {
