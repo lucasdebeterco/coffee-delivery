@@ -1,20 +1,16 @@
 import { Bank, CreditCard, CurrencyDollar, Money } from '@phosphor-icons/react'
-import { useState } from 'react'
+import { useContext } from 'react'
 import { useTheme } from 'styled-components'
 
+import { PaymentContext, PaymentType } from '../../../../contexts/PaymentContext.tsx'
 import { CheckoutCardContainer } from '../../styles.ts'
 import { CheckoutCardHeader } from '../CheckoutCardHeader'
 import { PaymentOptionsArea } from './styles.ts'
 
-enum PaymentType {
-    CARTAO_CREDITO,
-    CARTAO_DEBITO,
-    DINHEIRO
-}
 
 export function Pagamento() {
     const theme = useTheme()
-    const [selectedPayment, setSelectedPayment] = useState<number | null>(null)
+    const {selectedPaymentOption, handlePaymentOptionChange} = useContext(PaymentContext)
 
     return (
         <CheckoutCardContainer>
@@ -26,22 +22,22 @@ export function Pagamento() {
 
             <PaymentOptionsArea>
                 <button
-                    onClick={() => setSelectedPayment(PaymentType.CARTAO_CREDITO)}
-                    className={selectedPayment === PaymentType.CARTAO_CREDITO ? 'selected' : ''}
+                    onClick={() => handlePaymentOptionChange(PaymentType.CARTAO_CREDITO)}
+                    className={selectedPaymentOption === PaymentType.CARTAO_CREDITO ? 'selected' : ''}
                 >
                     <CreditCard size={16} color={theme['purple']} />
                     Cartão de Crédito
                 </button>
                 <button
-                    onClick={() => setSelectedPayment(PaymentType.CARTAO_DEBITO)}
-                    className={selectedPayment === PaymentType.CARTAO_DEBITO ? 'selected' : ''}
+                    onClick={() => handlePaymentOptionChange(PaymentType.CARTAO_DEBITO)}
+                    className={selectedPaymentOption === PaymentType.CARTAO_DEBITO ? 'selected' : ''}
                 >
                     <Bank size={16} color={theme['purple']} />
                     Cartão de Débito
                 </button>
                 <button
-                    onClick={() => setSelectedPayment(PaymentType.DINHEIRO)}
-                    className={selectedPayment === PaymentType.DINHEIRO ? 'selected' : ''}
+                    onClick={() => handlePaymentOptionChange(PaymentType.DINHEIRO)}
+                    className={selectedPaymentOption === PaymentType.DINHEIRO ? 'selected' : ''}
                 >
                     <Money size={16} color={theme['purple']} />
                     Dinheiro

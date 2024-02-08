@@ -64,7 +64,12 @@ export function CoffeeContextProvider({children}: ICoffeeContextProviderProps) {
     }
 
     return (
-        <CoffeeContext.Provider value={{ cart, setCartItems, removeCartItem, changeCartItemQuantity }}>
+        <CoffeeContext.Provider value={{
+            cart,
+            setCartItems,
+            removeCartItem,
+            changeCartItemQuantity
+        }}>
             {children}
         </CoffeeContext.Provider>
     )

@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { Navigate } from 'react-router-dom'
 
 import { CoffeeContext } from '../../../../contexts/CoffeeContext.tsx'
 import { coffees } from '../../../../data/coffees.ts'
