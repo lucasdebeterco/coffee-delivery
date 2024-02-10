@@ -1,12 +1,18 @@
 import { MapPinLine } from '@phosphor-icons/react'
+import { useContext } from 'react'
 import { useTheme } from 'styled-components'
 
+import { AdressContext } from '../../../../contexts/AdressContext.tsx'
 import { CheckoutCardContainer } from '../../styles.ts'
 import { CheckoutCardHeader } from '../CheckoutCardHeader'
 import { EnderecoFormArea } from './styles.ts'
 
 export function EnderecoEntrega() {
     const theme = useTheme()
+
+    const { adress } = useContext(AdressContext)
+
+    console.log(adress)
 
     return (
         <CheckoutCardContainer>

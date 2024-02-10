@@ -1,5 +1,4 @@
 import { useContext } from 'react'
-import { Navigate } from 'react-router-dom'
 
 import { CoffeeContext } from '../../../../contexts/CoffeeContext.tsx'
 import { coffees } from '../../../../data/coffees.ts'
@@ -23,11 +22,9 @@ export function Resumo() {
     return (
         <CheckoutCardContainer hasCustomBorderRadius={true}>
             <CartItemsWrapper>
-                {cart && Object.keys(cart).map((cartItem) => {
-                    return (
-                        <CartItem coffeeItemCart={{[cartItem]: cart[Number(cartItem)]}} />
-                    )
-                })}
+                {cart && Object.keys(cart).map((cartItem) => (
+                    <CartItem key={cartItem} coffeeItemCart={{[cartItem]: cart[Number(cartItem)]}} />
+                ))}
             </CartItemsWrapper>
 
             <PriceArea>
