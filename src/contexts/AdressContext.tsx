@@ -1,7 +1,13 @@
 import { createContext, ReactNode, useState } from 'react'
 
-interface IAdress {
+export interface IAdress {
     cep: string
+    rua: string
+    numero: number
+    complemento: string
+    bairro: string
+    cidade: string
+    uf: string
 }
 
 interface IAdressContext {
@@ -16,10 +22,10 @@ interface AdressContextProviderProps {
 }
 
 export function AdressContextProvider({children}: AdressContextProviderProps) {
-    const [adress, setAdress] = useState<IAdress>(null)
+    const [adress, setAdress] = useState<IAdress | null>(null)
 
-    function handleSetAdress(props: IAdress) {
-        console.log('aaa')
+    function handleSetAdress(adressFormData: IAdress) {
+        setAdress(adressFormData)
     }
 
     return (

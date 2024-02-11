@@ -1,18 +1,25 @@
 import { MapPinLine } from '@phosphor-icons/react'
 import { useContext } from 'react'
+import { useForm } from 'react-hook-form'
 import { useTheme } from 'styled-components'
 
-import { AdressContext } from '../../../../contexts/AdressContext.tsx'
+import { AdressContext, IAdress } from '../../../../contexts/AdressContext.tsx'
 import { CheckoutCardContainer } from '../../styles.ts'
 import { CheckoutCardHeader } from '../CheckoutCardHeader'
 import { EnderecoFormArea } from './styles.ts'
 
 export function EnderecoEntrega() {
     const theme = useTheme()
+    const { handleSetAdress } = useContext(AdressContext)
 
-    const { adress } = useContext(AdressContext)
+    const {
+        register,
+        handleSubmit
+    } = useForm<IAdress>()
 
-    console.log(adress)
+    function onSubmit(data: IAdress) {
+        handleSetAdress(data)
+    }
 
     return (
         <CheckoutCardContainer>
@@ -22,14 +29,44 @@ export function EnderecoEntrega() {
                 subtitle="Informe o endereço onde deseja receber seu pedido"
             />
 
-            <EnderecoFormArea>
-                <input id="cep" name="cep" placeholder="CEP"/>
-                <input id="rua" name="rua" placeholder="Rua"/>
-                <input id="numero" name="numero" placeholder="Número"/>
-                <input id="complemento" name="complemento" placeholder="Complemento"/>
-                <input id="bairro" name="bairro" placeholder="Bairro"/>
-                <input id="cidade" name="cidade" placeholder="Cidade"/>
-                <input id="uf" name="uf" placeholder="UF"/>
+            <EnderecoFormArea onSubmit={handleSubmit(onSubmit)}>
+                <input
+                    id="cep"
+                    placeholder="CEP"
+                    {...register('cep')}
+                />
+                <input
+                    id="rua"
+                    placeholder="Rua"
+                    {...register('rua')}
+                />
+                <input
+                    id="numero"
+                    placeholder="Número"
+                    {...register('numero')}
+                />
+                <input
+                    id="complemento"
+                    placeholder="Complemento"
+                    {...register('complemento')}
+                />
+                <input
+                    id="bairro"
+                    placeholder="Bairro"
+                    {...register('bairro')}
+                />
+                <input
+                    id="cidade"
+                    placeholder="Cidade"
+                    {...register('cidade')}
+                />
+                <input
+                    id="uf"
+                    placeholder="UF"
+                    {...register('uf')}
+                />
+
+                <input type="submit" />
             </EnderecoFormArea>
         </CheckoutCardContainer>
     )

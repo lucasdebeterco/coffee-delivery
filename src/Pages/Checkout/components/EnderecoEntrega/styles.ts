@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const EnderecoFormArea = styled.form`
+export const EnderecoFormArea = styled.form<any>`
     display: grid;
     gap: 12px;
     grid-template-columns: repeat(4, 1fr);
