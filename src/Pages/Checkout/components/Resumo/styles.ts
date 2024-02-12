@@ -58,7 +58,7 @@ export const ConfirmCheckoutButton = styled.button`
     cursor: pointer;
     transition: all .2s ease;
     
-    &:hover {
+    &:not(:disabled):hover {
         background: ${(props) => props.theme['yellow-dark']};
     }
 `

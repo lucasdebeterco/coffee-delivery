@@ -28,7 +28,6 @@ export const PaymentOptionsArea = styled.div`
             background: ${(props) => props.theme['purple-light']};
             box-shadow: 0 0 0 1px #4B2995;
         }
-        }
     }
     
 `

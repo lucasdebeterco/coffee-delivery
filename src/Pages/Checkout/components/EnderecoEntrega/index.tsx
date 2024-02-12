@@ -1,25 +1,19 @@
 import { MapPinLine } from '@phosphor-icons/react'
-import { useContext } from 'react'
-import { useForm } from 'react-hook-form'
+import { FieldErrors, UseFormRegister } from 'react-hook-form'
 import { useTheme } from 'styled-components'
 
-import { AdressContext, IAdress } from '../../../../contexts/AdressContext.tsx'
+import { IAdress } from '../../../../contexts/AdressContext.tsx'
 import { CheckoutCardContainer } from '../../styles.ts'
 import { CheckoutCardHeader } from '../CheckoutCardHeader'
 import { EnderecoFormArea } from './styles.ts'
 
-export function EnderecoEntrega() {
+interface IEnderecoEntrega {
+    errors: FieldErrors<IAdress>
+    register: UseFormRegister<IAdress>
+}
+
+export function EnderecoEntrega({errors, register}: IEnderecoEntrega) {
     const theme = useTheme()
-    const { handleSetAdress } = useContext(AdressContext)
-
-    const {
-        register,
-        handleSubmit
-    } = useForm<IAdress>()
-
-    function onSubmit(data: IAdress) {
-        handleSetAdress(data)
-    }
 
     return (
         <CheckoutCardContainer>
@@ -29,44 +23,49 @@ export function EnderecoEntrega() {
                 subtitle="Informe o endereço onde deseja receber seu pedido"
             />
 
-            <EnderecoFormArea onSubmit={handleSubmit(onSubmit)}>
+            <EnderecoFormArea>
                 <input
                     id="cep"
                     placeholder="CEP"
-                    {...register('cep')}
+                    className={errors.cep ? 'invalid' : ''}
+                    {...register('cep',  {required: true})}
                 />
                 <input
                     id="rua"
                     placeholder="Rua"
-                    {...register('rua')}
+                    className={errors.rua ? 'invalid' : ''}
+                    {...register('rua', {required: true})}
                 />
                 <input
                     id="numero"
                     placeholder="Número"
-                    {...register('numero')}
+                    className={errors.numero ? 'invalid' : ''}
+                    {...register('numero', {required: true})}
                 />
                 <input
                     id="complemento"
                     placeholder="Complemento"
-                    {...register('complemento')}
+                    className={errors.complemento ? 'invalid' : ''}
+                    {...register('complemento', {required: true})}
                 />
                 <input
                     id="bairro"
                     placeholder="Bairro"
-                    {...register('bairro')}
+                    className={errors.bairro ? 'invalid' : ''}
+                    {...register('bairro', {required: true})}
                 />
                 <input
                     id="cidade"
                     placeholder="Cidade"
-                    {...register('cidade')}
+                    className={errors.cidade ? 'invalid' : ''}
+                    {...register('cidade', {required: true})}
                 />
                 <input
                     id="uf"
                     placeholder="UF"
-                    {...register('uf')}
+                    className={errors.uf ? 'invalid' : ''}
+                    {...register('uf', {required: true})}
                 />
-
-                <input type="submit" />
             </EnderecoFormArea>
         </CheckoutCardContainer>
     )

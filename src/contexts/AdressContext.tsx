@@ -25,6 +25,7 @@ export function AdressContextProvider({children}: AdressContextProviderProps) {
     const [adress, setAdress] = useState<IAdress | null>(null)
 
     function handleSetAdress(adressFormData: IAdress) {
+        console.log('aaa')
         setAdress(adressFormData)
     }
 

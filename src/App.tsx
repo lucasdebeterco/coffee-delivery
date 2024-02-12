@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components'
 
 import { AdressContextProvider } from './contexts/AdressContext.tsx'
 import { CoffeeContextProvider } from './contexts/CoffeeContext.tsx'
+import { PaymentContextProvider } from './contexts/PaymentContext.tsx'
 import { DefaultLayout } from './layouts/DefaultLayout'
 import { Checkout } from './Pages/Checkout'
 import { Done } from './Pages/Done'
@@ -17,14 +18,16 @@ function App() {
             <BrowserRouter>
                 <CoffeeContextProvider>
                     <AdressContextProvider>
-                        <Routes>
-                            <Route path="/" element={<DefaultLayout/>}>
-                                <Route path="/" element={<Home />} />
-                                <Route path="/checkout" element={<Checkout />} />
-                                <Route path="/checkout/done" element={<Done />} />
+                        <PaymentContextProvider>
+                            <Routes>
+                                <Route path="/" element={<DefaultLayout/>}>
+                                    <Route path="/" element={<Home />} />
+                                    <Route path="/checkout" element={<Checkout />} />
+                                    <Route path="/checkout/done" element={<Done />} />
 
-                            </Route>
-                        </Routes>
+                                </Route>
+                            </Routes>
+                        </PaymentContextProvider>
                     </AdressContextProvider>
                 </CoffeeContextProvider>
             </BrowserRouter>

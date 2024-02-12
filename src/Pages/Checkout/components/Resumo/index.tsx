@@ -1,15 +1,27 @@
 import { useContext } from 'react'
+import { FieldErrors } from 'react-hook-form'
+import toast from 'react-hot-toast'
 
+import { IAdress } from '../../../../contexts/AdressContext.tsx'
 import { CoffeeContext } from '../../../../contexts/CoffeeContext.tsx'
+import { PaymentContext } from '../../../../contexts/PaymentContext.tsx'
 import { coffees } from '../../../../data/coffees.ts'
 import { formatCurrency } from '../../../../utils/formatCurrency.ts'
 import { CheckoutCardContainer } from '../../styles.ts'
 import { CartItem } from './CartItem'
 import { CartItemsWrapper, ConfirmCheckoutButton, PriceArea } from './styles.ts'
 
-export function Resumo() {
+interface ResumoProps {
+    errors: FieldErrors<IAdress>
+}
+
+export function Resumo({ errors }: ResumoProps) {
+    const { selectedPaymentOption } = useContext(PaymentContext)
+    const hasInvalidFields = Boolean(selectedPaymentOption == null || Object.keys(errors).length)
+
     const { cart } = useContext(CoffeeContext)
     const valorEntrega = 3.50
+
 
     let totalItems = 0
     let totalEntrega = 0
@@ -42,7 +54,11 @@ export function Resumo() {
                 </div>
             </PriceArea>
 
-            <ConfirmCheckoutButton className="confirmCheckout">
+            <ConfirmCheckoutButton
+                type="submit"
+                className="confirmCheckout"
+                onClick={() => hasInvalidFields && toast.error('Alguns campos obrigatórios não foram preenchidos')}
+            >
                 Confirmar Pedido
             </ConfirmCheckoutButton>
         </CheckoutCardContainer>

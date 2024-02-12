@@ -17,7 +17,7 @@ interface IPaymentContextProviderProps {
     children: ReactNode
 }
 
-export function CoffeeContextProvider({children}: IPaymentContextProviderProps) {
+export function PaymentContextProvider({children}: IPaymentContextProviderProps) {
     const [selectedPaymentOption, setSelectedPaymentOption] = useState<number | null>(null)
 
     function handlePaymentOptionChange(selectedOption: number) {
@@ -25,10 +25,7 @@ export function CoffeeContextProvider({children}: IPaymentContextProviderProps) 
     }
 
     return (
-        <PaymentContext.Provider value={{
-            selectedPaymentOption,
-            handlePaymentOptionChange
-        }}>
+        <PaymentContext.Provider value={{selectedPaymentOption, handlePaymentOptionChange}}>
             {children}
         </PaymentContext.Provider>
     )
