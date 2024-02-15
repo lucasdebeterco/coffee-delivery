@@ -1,9 +1,9 @@
 import { createContext, ReactNode, useState } from 'react'
 
 export enum PaymentType {
-    CARTAO_CREDITO,
-    CARTAO_DEBITO,
-    DINHEIRO
+    CARTAO_CREDITO = 0,
+    CARTAO_DEBITO = 1,
+    DINHEIRO= 2
 }
 
 interface IPaymentContext {

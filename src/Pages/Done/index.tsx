@@ -1,5 +1,8 @@
 import { CurrencyDollar, MapPin, Timer } from '@phosphor-icons/react'
+import { useContext } from 'react'
 
+import { AdressContext } from '../../contexts/AdressContext.tsx'
+import { PaymentContext, PaymentType } from '../../contexts/PaymentContext.tsx'
 import doneIllustration from './assets/doneIllustration.svg'
 import {
     CheckoutDoneContainer,
@@ -10,7 +13,24 @@ import {
     PedidoConfirmadoTitle
 } from './styles.ts'
 
+const PaymentTypeNames = {
+    [PaymentType.CARTAO_CREDITO]: 'Cartão de Crédito',
+    [PaymentType.CARTAO_DEBITO]: 'Cartão de Débito',
+    [PaymentType.DINHEIRO]: 'Dinheiro'
+}
+
 export function Done() {
+    const { selectedPaymentOption } = useContext(PaymentContext)
+    const PaymentOptionName = selectedPaymentOption ? PaymentTypeNames[selectedPaymentOption] : ''
+
+    const { adress } = useContext(AdressContext)
+
+    {selectedPaymentOption && {
+        0: 'Cartão de Crédito',
+        1: 'Cartão de Débito',
+        2: 'Dinheiro',
+    }[selectedPaymentOption]}
+
     return (
         <CheckoutDoneContainer>
             <PedidoConfirmado>
@@ -25,8 +45,8 @@ export function Done() {
                             <MapPin weight="fill" color="#fff" />
                         </DadosEntregaIcon>
                         <div className="dadosEntregaInfo">
-                            <span>Entrega em <strong>Rua João Daniel Martinelli, 102</strong></span>
-                            <span>Farrapos - Porto Alegre, RS</span>
+                            <span>Entrega em <strong>Rua {adress?.rua}, {adress?.numero}</strong></span>
+                            <span>{adress?.bairro} - {adress?.cidade}, {adress?.uf}</span>
                         </div>
                     </ItemDadosEntrega>
                     <ItemDadosEntrega>
@@ -44,7 +64,7 @@ export function Done() {
                         </DadosEntregaIcon>
                         <div className="dadosEntregaInfo">
                             <span>Pagamento na entrega</span>
-                            <strong>Cartão de Crédito</strong>
+                            <strong>{PaymentOptionName}</strong>
                         </div>
                     </ItemDadosEntrega>
                 </DadosEntrega>

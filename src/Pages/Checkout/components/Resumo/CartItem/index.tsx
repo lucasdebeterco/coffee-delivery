@@ -19,7 +19,7 @@ export function CartItem({coffeeItemCart}: CartItemProps) {
     return (
         <CartItemContainer>
             <ItemDataWrapper>
-                <img src={`/coffees/${coffeeItemData.image}.png`} alt=""/>
+                <img src={`/coffees/${coffeeItemData.image}.png`} alt="" draggable={false} />
 
                 <div className="titleActionsArea">
                     <span className="itemTitle">{coffeeItemData.title}</span>

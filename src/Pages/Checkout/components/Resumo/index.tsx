@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { FieldErrors } from 'react-hook-form'
 import toast from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
 
 import { IAdress } from '../../../../contexts/AdressContext.tsx'
 import { CoffeeContext } from '../../../../contexts/CoffeeContext.tsx'
@@ -18,6 +19,7 @@ interface ResumoProps {
 export function Resumo({ errors }: ResumoProps) {
     const { selectedPaymentOption } = useContext(PaymentContext)
     const hasInvalidFields = Boolean(selectedPaymentOption == null || Object.keys(errors).length)
+    const navigate = useNavigate()
 
     const { cart } = useContext(CoffeeContext)
     const valorEntrega = 3.50
@@ -30,6 +32,12 @@ export function Resumo({ errors }: ResumoProps) {
         totalItems += coffees[Number(item)].price * cart[Number(item)]
         totalEntrega += valorEntrega * cart[Number(item)]
     })
+
+    function validteCheckout() {
+        hasInvalidFields
+            ? toast.error('Alguns campos obrigatórios não foram preenchidos')
+            : navigate('/checkout/done')
+    }
 
     return (
         <CheckoutCardContainer hasCustomBorderRadius={true}>
@@ -57,7 +65,7 @@ export function Resumo({ errors }: ResumoProps) {
             <ConfirmCheckoutButton
                 type="submit"
                 className="confirmCheckout"
-                onClick={() => hasInvalidFields && toast.error('Alguns campos obrigatórios não foram preenchidos')}
+                onClick={validteCheckout}
             >
                 Confirmar Pedido
             </ConfirmCheckoutButton>
