@@ -25,12 +25,6 @@ export function Done() {
 
     const { adress } = useContext(AdressContext)
 
-    {selectedPaymentOption && {
-        0: 'Cartão de Crédito',
-        1: 'Cartão de Débito',
-        2: 'Dinheiro',
-    }[selectedPaymentOption]}
-
     return (
         <CheckoutDoneContainer>
             <PedidoConfirmado>
