@@ -14,14 +14,15 @@ import { CartItemsWrapper, ConfirmCheckoutButton, PriceArea } from './styles.ts'
 
 interface ResumoProps {
     errors: FieldErrors<IAdress>
+    setIsCheckoutDone: any
 }
 
-export function Resumo({ errors }: ResumoProps) {
+export function Resumo({ errors, setIsCheckoutDone }: ResumoProps) {
     const { selectedPaymentOption } = useContext(PaymentContext)
-    const hasInvalidFields = Boolean(selectedPaymentOption == null || Object.keys(errors).length)
-    const navigate = useNavigate()
-
     const { cart } = useContext(CoffeeContext)
+
+    const navigate = useNavigate()
+    const hasInvalidFields = Boolean(selectedPaymentOption == null || Object.keys(errors).length)
     const valorEntrega = 3.50
 
 
@@ -33,10 +34,13 @@ export function Resumo({ errors }: ResumoProps) {
         totalEntrega += valorEntrega * cart[Number(item)]
     })
 
-    function validteCheckout() {
-        hasInvalidFields
-            ? toast.error('Alguns campos obrigatórios não foram preenchidos')
-            : navigate('/checkout/done')
+    function validateCheckout() {
+        if (hasInvalidFields) {
+            toast.error('Alguns campos obrigatórios não foram preenchidos')
+        } else {
+            setIsCheckoutDone(true)
+            navigate('/checkout/done')
+        }
     }
 
     return (
@@ -65,7 +69,7 @@ export function Resumo({ errors }: ResumoProps) {
             <ConfirmCheckoutButton
                 type="submit"
                 className="confirmCheckout"
-                onClick={validteCheckout}
+                onClick={validateCheckout}
             >
                 Confirmar Pedido
             </ConfirmCheckoutButton>

@@ -7,7 +7,11 @@ import { Pagamento } from './components/Pagamento'
 import { Resumo } from './components/Resumo'
 import { CheckoutContainer, CheckoutSection, SectionTitle } from './styles.ts'
 
-export function Checkout() {
+interface CheckoutProps {
+    setIsCheckoutDone: any
+}
+
+export function Checkout({setIsCheckoutDone}: CheckoutProps) {
     const { handleSetAdress } = useContext(AdressContext)
 
     const {
@@ -33,7 +37,7 @@ export function Checkout() {
 
             <CheckoutSection>
                 <SectionTitle>Cafés selecionados</SectionTitle>
-                <Resumo errors={errors} />
+                <Resumo errors={errors} setIsCheckoutDone={setIsCheckoutDone} />
             </CheckoutSection>
         </CheckoutContainer>
     )

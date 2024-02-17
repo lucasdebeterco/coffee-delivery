@@ -1,5 +1,6 @@
+import { useState } from 'react'
 import { Toaster } from 'react-hot-toast'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, redirect, Route, Routes } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 
 import { AdressContextProvider } from './contexts/AdressContext.tsx'
@@ -13,6 +14,8 @@ import { GlobalStyle } from './styles/global.ts'
 import { defaultTheme } from './styles/themes/default.ts'
 
 function App() {
+    const [isCheckoutDone, setIsCheckoutDone] = useState(false)
+
     return (
         <ThemeProvider theme={defaultTheme}>
             <BrowserRouter>
@@ -22,8 +25,8 @@ function App() {
                             <Routes>
                                 <Route path="/" element={<DefaultLayout/>}>
                                     <Route path="/" element={<Home />} />
-                                    <Route path="/checkout" element={<Checkout />} />
-                                    <Route path="/checkout/done" element={<Done />} />
+                                    <Route path="/checkout" element={<Checkout setIsCheckoutDone={setIsCheckoutDone} />} />
+                                    <Route path="/checkout/done" element={ isCheckoutDone ? <Done /> : redirect('/checkout')} />
 
                                 </Route>
                             </Routes>
