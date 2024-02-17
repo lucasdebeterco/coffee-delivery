@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Toaster } from 'react-hot-toast'
-import { BrowserRouter, redirect, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 
 import { AdressContextProvider } from './contexts/AdressContext.tsx'
@@ -26,8 +26,11 @@ function App() {
                                 <Route path="/" element={<DefaultLayout/>}>
                                     <Route path="/" element={<Home />} />
                                     <Route path="/checkout" element={<Checkout setIsCheckoutDone={setIsCheckoutDone} />} />
-                                    <Route path="/checkout/done" element={ isCheckoutDone ? <Done /> : redirect('/checkout')} />
-
+                                    <Route path="/checkout/done" element={
+                                        isCheckoutDone ?
+                                            <Done /> :
+                                            <Navigate to="/checkout" />
+                                    } />
                                 </Route>
                             </Routes>
                         </PaymentContextProvider>
