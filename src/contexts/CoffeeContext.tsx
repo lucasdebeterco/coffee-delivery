@@ -12,6 +12,7 @@ interface ICoffeeContext {
     setCartItems: (coffeeId: number, qtd: number) => void
     removeCartItem: (coffeeId: number) => void
     changeCartItemQuantity: (coffeeId: number, qtd: number) => void
+    cleanCart: () => void
 }
 
 export const CoffeeContext = createContext({} as ICoffeeContext)
@@ -63,12 +64,18 @@ export function CoffeeContextProvider({children}: ICoffeeContextProviderProps) {
         localStorage.setItem('cartItems', JSON.stringify(newState))
     }
 
+    function cleanCart() {
+        localStorage.removeItem('cartItems')
+        setCart({})
+    }
+
     return (
         <CoffeeContext.Provider value={{
             cart,
             setCartItems,
             removeCartItem,
-            changeCartItemQuantity
+            changeCartItemQuantity,
+            cleanCart
         }}>
             {children}
         </CoffeeContext.Provider>

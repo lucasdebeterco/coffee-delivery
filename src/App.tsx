@@ -14,7 +14,7 @@ import { GlobalStyle } from './styles/global.ts'
 import { defaultTheme } from './styles/themes/default.ts'
 
 function App() {
-    const [isCheckoutDone, setIsCheckoutDone] = useState(false)
+    const [isCheckoutDone, setIsCheckoutDone] = useState(!!localStorage.getItem('checkoutDoneData'))
 
     return (
         <ThemeProvider theme={defaultTheme}>

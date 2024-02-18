@@ -8,7 +8,7 @@ export enum PaymentType {
 
 interface IPaymentContext {
     selectedPaymentOption: PaymentType | null
-    handlePaymentOptionChange: (selectedOption: number) => void
+    handlePaymentOptionChange: (selectedOption: number | null) => void
 }
 
 export const PaymentContext = createContext({} as IPaymentContext)
@@ -20,7 +20,7 @@ interface IPaymentContextProviderProps {
 export function PaymentContextProvider({children}: IPaymentContextProviderProps) {
     const [selectedPaymentOption, setSelectedPaymentOption] = useState<number | null>(null)
 
-    function handlePaymentOptionChange(selectedOption: number) {
+    function handlePaymentOptionChange(selectedOption: number | null) {
         setSelectedPaymentOption(selectedOption)
     }
 

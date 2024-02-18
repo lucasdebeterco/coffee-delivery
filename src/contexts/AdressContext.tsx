@@ -12,7 +12,7 @@ export interface IAdress {
 
 interface IAdressContext {
     adress: IAdress | null
-    handleSetAdress: (adress: IAdress) => void
+    handleSetAdress: (adress: IAdress | null) => void
 }
 
 export const AdressContext = createContext({} as IAdressContext)
@@ -24,7 +24,7 @@ interface AdressContextProviderProps {
 export function AdressContextProvider({children}: AdressContextProviderProps) {
     const [adress, setAdress] = useState<IAdress | null>(null)
 
-    function handleSetAdress(adressFormData: IAdress) {
+    function handleSetAdress(adressFormData: IAdress | null) {
         setAdress(adressFormData)
     }
 

@@ -1,8 +1,6 @@
 import { CurrencyDollar, MapPin, Timer } from '@phosphor-icons/react'
-import { useContext } from 'react'
 
-import { AdressContext } from '../../contexts/AdressContext.tsx'
-import { PaymentContext, PaymentType } from '../../contexts/PaymentContext.tsx'
+import { PaymentType } from '../../contexts/PaymentContext.tsx'
 import doneIllustration from './assets/doneIllustration.svg'
 import {
     CheckoutDoneContainer,
@@ -20,10 +18,9 @@ const PaymentTypeNames = {
 }
 
 export function Done() {
-    const { selectedPaymentOption } = useContext(PaymentContext)
-    const PaymentOptionName = selectedPaymentOption ? PaymentTypeNames[selectedPaymentOption] : ''
-
-    const { adress } = useContext(AdressContext)
+    const checkoutDoneData = localStorage.getItem('checkoutDoneData')
+    const {selectedPaymentOption, adress} = checkoutDoneData && JSON.parse(checkoutDoneData)
+    const PaymentOptionName = PaymentTypeNames[selectedPaymentOption as keyof typeof PaymentTypeNames]
 
     return (
         <CheckoutDoneContainer>
@@ -39,8 +36,8 @@ export function Done() {
                             <MapPin weight="fill" color="#fff" />
                         </DadosEntregaIcon>
                         <div className="dadosEntregaInfo">
-                            <span>Entrega em <strong>Rua {adress?.rua}, {adress?.numero}</strong></span>
-                            <span>{adress?.bairro} - {adress?.cidade}, {adress?.uf}</span>
+                            <span>Entrega em <strong>Rua {adress.rua}, {adress.numero}</strong></span>
+                            <span>{adress.bairro} - {adress.cidade}, {adress.uf}</span>
                         </div>
                     </ItemDadosEntrega>
                     <ItemDadosEntrega>

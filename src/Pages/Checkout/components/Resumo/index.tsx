@@ -3,7 +3,7 @@ import { FieldErrors } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 
-import { IAdress } from '../../../../contexts/AdressContext.tsx'
+import { AdressContext, IAdress } from '../../../../contexts/AdressContext.tsx'
 import { CoffeeContext } from '../../../../contexts/CoffeeContext.tsx'
 import { PaymentContext } from '../../../../contexts/PaymentContext.tsx'
 import { coffees } from '../../../../data/coffees.ts'
@@ -18,8 +18,9 @@ interface ResumoProps {
 }
 
 export function Resumo({ errors, setIsCheckoutDone }: ResumoProps) {
-    const { selectedPaymentOption } = useContext(PaymentContext)
-    const { cart } = useContext(CoffeeContext)
+    const { selectedPaymentOption, handlePaymentOptionChange } = useContext(PaymentContext)
+    const { cart, cleanCart } = useContext(CoffeeContext)
+    const { handleSetAdress, adress } = useContext(AdressContext)
 
     const navigate = useNavigate()
     const hasInvalidFields = Boolean(selectedPaymentOption == null || Object.keys(errors).length)
@@ -38,6 +39,15 @@ export function Resumo({ errors, setIsCheckoutDone }: ResumoProps) {
         if (hasInvalidFields) {
             toast.error('Alguns campos obrigatórios não foram preenchidos')
         } else {
+            localStorage.setItem('checkoutDoneData', JSON.stringify({
+                selectedPaymentOption,
+                adress
+            }))
+
+            handlePaymentOptionChange(null)
+            handleSetAdress(null)
+            cleanCart()
+
             setIsCheckoutDone(true)
             navigate('/checkout/done')
         }
